@@ -18,7 +18,7 @@ function MainLayout() {
     },
   };
   const handleChange = (event) => {
-    setSearchValue(event.target.value);
+    setSearchValue(event.target.value.toLowerCase().trim());
     console.log(searchValue);
   };
 
@@ -48,27 +48,26 @@ function MainLayout() {
   return (
     <div>
       <div className="p-20">
-        <div className="flex space-x-4 items-center rounded-md">
+        <div className="flex items-center space-x-4 rounded-md">
           <div className="text-xl font-semibold">Search for your State:</div>
           <input
             placeholder="enter a state"
-            className="py-2 rounded-md bg-gray-200 w-80"
+            className="py-2 bg-gray-200 rounded-md w-80"
             type="text"
             onChange={handleChange}
             value={searchValue}
           />
           <button
-            className="bg-green-600 text-lg font-semibold rounded-md text-white px-6 py-2"
+            className="px-6 py-2 text-lg font-semibold text-white bg-green-600 rounded-md"
             onClick={go}
           >
             Get latest price
           </button>
         </div>
-        <div className="border-2 border-black p-4 mt-6 flex justify-between">
-          <p>City</p>
+        <div className="flex justify-between p-4 mt-6 border-2 border-black">
+          <p className="sm:w-80">City</p>
           <p>Today' Price</p>
           <p>Yesterdays's Price</p>
-          <p>Change</p>
         </div>
         <div>
           {" "}
